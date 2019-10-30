@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# BU -- USB Backup Tool (Version 1.0) -- by Joe Collins. (www.ezeelinux.com)
+# BU -- USB Backup Tool (Version 1.1) -- by Joe Collins. (www.ezeelinux.com)
 # A simple tool to create reliable backups of /etc/ and /home from multiple
 # Debian/Ubuntu Linux systems. (May 10, 2019)
 # (GNU/General Public License version 2.0)
@@ -92,9 +92,15 @@ if [ "$?" == "0" ]; then
 
     # Clear any accidental input during backup:
     read -t 1 -n 10000 discard
+
     echo "------------------"
     echo "- All backed up! -"
     echo "------------------"
+
+    # Remove old and create new timestamp file:
+    rm -f /media/$user/BU_Drive/BU_Backups/$host/BU\ Backup* >/dev/null 2>&1
+    touch /media/$user/BU_Drive/BU_Backups/$host/"BU Backup was successful: $(date)"
+
     echo "Wait! Syncing Drives..."
     sync
     echo "...done"
@@ -105,6 +111,11 @@ else
 
     # Clear any accidental input during backup:
     read -t 1 -n 10000 discard
+
+    # Remove old and create new timestamp file:
+    rm -f /media/$user/BU_Drive/BU_Backups/$host/BU\ Backup* >/dev/null 2>&1
+    touch /media/$user/BU_Drive/BU_Backups/$host/"BU Backup had some errors: $(date)"
+
     echo "There were errors! Try running the command again to correct them." >&2
     echo "- If errors persist then you may have corrupt files or failing hardware." >&2
     exit 1
@@ -129,7 +140,7 @@ if [ ! -d /media/$user/BU_Drive/BU_Backups/$host/ ]; then
 
 fi
 
-echo $'\n'$"BU Restore Function (Version 1.0)"
+echo $'\n'$"BU Restore Function (Version 1.1)"
 echo $'\n'$"WARNING!"
 echo "Any new files created in /home since last backup WILL BE DELETED!"
 echo "Are you sure you want to restore now? [y/N]"
@@ -165,7 +176,7 @@ read -n 1 -s choice
 
             else
 
-                # Returning to Main Menu if rsync fails:
+                # If rsync fails:
 
                 # Clear any accidental input during restore:
                 read -t 1 -n 10000 discard
@@ -194,8 +205,7 @@ help() {
 
 less << _EOF_
 
- BU - USB Backup Tool (Version 1.0) -- Help
- (v. 1.0)
+ BU - USB Backup Tool (Version 1.1) -- Help
 
  Press "q" to exit this Help page.
 
@@ -277,7 +287,7 @@ fi
 
 # Tell 'em who we are...
 
-echo "BU -- USB Backup Tool (Version 1.0)"
+echo "BU -- USB Backup Tool (Version 1.1)"
 drive_test
 backup
 

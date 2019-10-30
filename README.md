@@ -30,8 +30,7 @@
 
 4. Contents of Help Page:
 
- BU - USB Backup Tool (Version 1.0) -- Help
- (v. 1.0)
+ BU - USB Backup Tool (Version 1.1) -- Help
 
  Press "q" to exit this Help page.
 
