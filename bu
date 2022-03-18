@@ -7,7 +7,7 @@ version="1.2"
 # additional by Julian (exa18) Cenkier
 #
 # A simple tool to create reliable backups of /etc/ and /home from multiple
-# (GNU/General Public License version 2.0)
+# (GNU/General Public License version 3.0)
 #
 # ...And away we go!
 #
