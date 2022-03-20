@@ -42,6 +42,8 @@ elif [[ -z $(command -v eopkg) ]];then
     #
     # Solus OS Linux
     #
+    # source: https://github.com/Gobytego/bu-usb_backup_tool_SolusOS_edition
+    #
     syspkg="eopkg it -y"
     sysdirfix="/run"
 fi
