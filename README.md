@@ -24,8 +24,8 @@
 3. License.
 
  BU is free softare. You can redistribute it and/or modify it under the
- terms of the GNU General Public License Version 2.0. as published by
- the Free Software Foundation. A copy of the GNU GPL 2.0 is provided with the
+ terms of the GNU General Public License Version 3.0. as published by
+ the Free Software Foundation. A copy of the GNU GPL 3.0 is provided with the
  software.
 
 4. Contents of Help Page:
