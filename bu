@@ -38,6 +38,7 @@ elif [[ -z $(command -v yum) ]];then
     # CentOS/RedHat
     #
     syspkg="yum install -y"
+    sysdirfix="/run"
 elif [[ -z $(command -v eopkg) ]];then
     #
     # Solus OS Linux
